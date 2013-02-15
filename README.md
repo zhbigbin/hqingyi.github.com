@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Jekyll-Bootstrap
 
 The quickest way to start and publish your Jekyll powered blog. 100% compatible with GitHub pages
@@ -44,4 +43,3 @@ The master and gh-pages branch do not share the same ancestry. Please treat them
 =======
 hqingyi.github.com
 ==================
->>>>>>> 6a797ae359196920eee2f4171b791182a857774a
