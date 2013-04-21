@@ -18,11 +18,7 @@ title: 首页
                     </ul>
                 </div>
                 <div class="span5">
-                    {% if post.content.length > 256 %}
-                        {{ post.content | truncate: 256}} </p>
-                    {% else %}
-                        {{ post.content }}
-                    {% endif %}
+                    <p>{{ post.description }}</p>
                     <p><a href="{{ post.url }}" class="btn btn-primary pull-right">查看全文</a></p>
                 </div>
             </div>

@@ -23,7 +23,7 @@
                      </h3>
                      <h3>打卡:</h3>
                      {% for record in page.records %}
-                       <p> - {{ record.datetime }}</p>
+                       <p> - {{ record.datetime }} : {{ record.content }}</p>
                      {% endfor %}
                 </div>
             </div>
