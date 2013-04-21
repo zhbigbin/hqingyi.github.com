@@ -32,6 +32,7 @@ title: 我的阅读
         {% endfor %}
     </div>
     <div class="span3">
+        {% include JB/public %}
         <hr>
         <div class="span3">
             <h2>所有标签</h2>

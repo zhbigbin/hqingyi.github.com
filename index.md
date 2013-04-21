@@ -49,6 +49,8 @@ title: 首页
                 </div>
         </div>
         <hr>
+        {% include JB/public %}
+        <hr>
         <div class="span3">
             <h2>所有标签</h2>
             <ul class="tag_box inline">

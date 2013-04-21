@@ -10,6 +10,7 @@ title: 我的文章
         {% include JB/blogs_list %}
     </div>
     <div class="span3">
+        {% include JB/public %}
         <hr>
         <div class="span3">
             <h2>所有标签</h2>
@@ -18,7 +19,6 @@ title: 我的文章
             {% include JB/tags_list %}
             </ul>
         </div>
-
         <hr>
         <div class="span3">
             <h2>所有文章</h2>
