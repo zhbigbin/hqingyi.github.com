@@ -1,9 +1,6 @@
-<div class="page-header">
-  <h1>{{ page.title }} </h1>
-</div>
-
 <div class="row">
   <div class="span9">
+    <h1>{{ page.title }}</h1>
     <div class="row">
         <div class="span3">
             {% if page.cover %}
@@ -49,8 +46,5 @@
     {% include JB/tags_list %}
     </ul>
   {% endunless %}  
-  </div>
-  <div>
-    {% tag_cloud %}
   </div>
 </div>
