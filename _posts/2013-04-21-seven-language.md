@@ -5,7 +5,7 @@ author: Bruce A. Tate
 cover: sevenlanguage.jpg
 urls:
  - text: 豆瓣
-   url: http://baidu.com
+   url: http://book.douban.com/subject/10555435/
 star: 5
 description: ""
 category: book 

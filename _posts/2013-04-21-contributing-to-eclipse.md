@@ -1,11 +1,11 @@
 ---
 layout: book
 title: "Contributing to Eclipse中文版"
-author: ""
+author: "Kent Beck, Erich Gamma"
 cover: contributing_to_eclipse.jpg
 urls: 
- - text: 
-   url: 
+ - text: 豆瓣
+   url: http://book.douban.com/subject/1219945/
 star: 5
 description: ""
 category: book

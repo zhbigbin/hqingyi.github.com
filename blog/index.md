@@ -1,11 +1,11 @@
 ---
 layout: default
-title: 首页
+title: 我的文章
 ---
 {% include JB/setup %}
 <div class="row">
     <div class="span9">
-        <h2>博客文章...</h2>
+        <h2>我的文章</h2>
         {% for post in site.categories.blog %}
         <div class="well">
             <div class="row">
