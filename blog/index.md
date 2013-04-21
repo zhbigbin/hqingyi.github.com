@@ -5,7 +5,7 @@ title: 我的文章
 {% include JB/setup %}
 <div class="row">
     <div class="span9">
-        <h2>我的文章</h2>
+        <h2>我的文章【{{ site.categories.blog | size }}】</h2>
         {% assign blogs_list = site.categories.blog %}
         {% include JB/blogs_list %}
     </div>

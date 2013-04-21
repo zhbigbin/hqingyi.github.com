@@ -5,7 +5,7 @@ title: 我的阅读
 {% include JB/setup %}
 <div class="row">
     <div class="span9">
-        <h2>我的阅读</h2>
+        <h2>我的阅读【{{ site.categories.book | size }}】</h2>
         {% for book in site.categories.book %}
             <div class="thumbnail row-fluid">
                 <div class="span3">
