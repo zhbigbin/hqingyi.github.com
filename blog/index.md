@@ -18,7 +18,7 @@ title: 我的文章
                     </ul>
                 </div>
                 <div class="span5">
-                    <p>{{ post.description }}</p>
+                    <p style="font-size:18px">{{ post.description }}</p>
                     <p><a href="{{ post.url }}" class="btn btn-primary pull-right">查看全文</a></p>
                 </div>
             </div>

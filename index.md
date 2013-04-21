@@ -18,7 +18,7 @@ title: 首页
                     </ul>
                 </div>
                 <div class="span5">
-                    <p>{{ post.description }}</p>
+                    <p style="font-size:18px">{{ post.description }}</p>
                     <p><a href="{{ post.url }}" class="btn btn-primary pull-right">查看全文</a></p>
                 </div>
             </div>
@@ -38,14 +38,14 @@ title: 首页
                                 {% assign tags_list = book.tags %}
                                 {% include JB/tags_list %}
                             </ul>
-                            <h3>作者: {{ book.author }}</h3>
-                            <h3>加入时间: {{ book.date | date: "%Y-%m-%d"}}</h3>
-                            <h3>评星: {{ book.star }}</h3>
-                            <h3>相关链接: 
+                            <h4>作者: {{ book.author }}</h4>
+                            <h4>加入时间: {{ book.date | date: "%Y-%m-%d"}}</h4>
+                            <h4>评星: {{ book.star }}</h4>
+                            <h4>相关链接: 
                                 {% for link in book.urls %}
-                                <a class="btn btn-primary" href="{{ link.url }}">{{ link.text }} </a>
+                                <a class="btn btn-primary btn-mini" href="{{ link.url }}">{{ link.text }} </a>
                                 {% endfor %}
-                            </h3> 
+                            </h4> 
                         </div>
                     </div>
                 </li>
