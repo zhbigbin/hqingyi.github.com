@@ -14,7 +14,7 @@
                      </ul>
                      <h3>作者: {{ page.author }}</h3>
                      <h3>加入时间: {{ page.date | date: "%Y-%m-%d"}}</h3>
-                     <h3>评星: <span class="allstar{{ book.star }}"></span></h3>
+                     <h3>评星: <span class="allstar{{ page.star }}"></span></h3>
                      <h3>描述: {{ page.description }}</h3>
                      <h3>相关链接: 
                         {% for link in page.urls %}
