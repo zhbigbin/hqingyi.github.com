@@ -6,24 +6,8 @@ title: 我的文章
 <div class="row">
     <div class="span9">
         <h2>我的文章</h2>
-        {% for post in site.categories.blog %}
-        <div class="well">
-            <div class="row">
-                <div class="span3 {% cycle 'pull-left','pull-right' %}">
-                    <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-                    <h2>{{ post.date | date: "%Y-%m-%d"}}</h2>                                                                                                                                          
-                     <ul class="tag_box inline">
-                        {% assign tags_list = post.tags %}
-                        {% include JB/tags_list %}
-                    </ul>
-                </div>
-                <div class="span5">
-                    <p style="font-size:18px">{{ post.description }}</p>
-                    <p><a href="{{ post.url }}" class="btn btn-primary pull-right">查看全文</a></p>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
+        {% assign blogs_list = site.categories.blog %}
+        {% include JB/blogs_list %}
     </div>
     <div class="span3">
         <hr>

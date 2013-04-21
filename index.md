@@ -6,24 +6,9 @@ title: 首页
 <div class="row">
     <div class="span9">
         <h2>最新文章 <a href="{{ HOME_PATH }}blog" style="font-size:18px">(更多...)</a></h2>
-        {% for post in site.categories.blog | limit:2 %}
-        <div class="well">
-            <div class="row">
-                <div class="span3 {% cycle 'pull-left','pull-right' %}">
-                    <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-                    <h2>{{ post.date | date: "%Y-%m-%d"}}</h2>
-                     <ul class="tag_box inline">
-                        {% assign tags_list = post.tags %}
-                        {% include JB/tags_list %}
-                    </ul>
-                </div>
-                <div class="span5">
-                    <p style="font-size:18px">{{ post.description }}</p>
-                    <p><a href="{{ post.url }}" class="btn btn-primary pull-right">查看全文</a></p>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
+        {% assign blogs_list = site.categories.blog %}
+        {% assign blogs_limit = 2 %}
+        {% include JB/blogs_list %}
         <h2>正在阅读 <a href="{{ HOME_PATH }}book" style="font-size:18px">(更多...)</a></h2>
         <div class="row-fluid">
             <ul class="thumbnails">
