@@ -6,7 +6,7 @@ cover: contributing_to_eclipse.jpg
 urls: 
  - text: 豆瓣
    url: http://book.douban.com/subject/1219945/
-star: 5
+star: 50
 description: ""
 category: book
 tags: [eclipse, plugin]

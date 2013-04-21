@@ -21,10 +21,10 @@ title: 我的阅读
                      </ul>
                      <h3>作者: {{ book.author }}</h3>
                      <h3>加入时间: {{ book.date | date: "%Y-%m-%d"}}</h3>
-                     <h3>评星: {{ book.star }}</h3>
+                     <h3>评星: <span class="allstar{{ book.star }}"></span></h3>
                      <h3>打卡:</h3>
                      {% for record in book.records | limit:5 %}
-                       <p> - {{ record.datetime }}</p>
+                       <p> - {{ record.datetime }} : {{ record.content }}</p>
                      {% endfor %}
                 </div>
             </div>

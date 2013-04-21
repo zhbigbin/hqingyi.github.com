@@ -6,7 +6,7 @@ cover: sevenlanguage.jpg
 urls:
  - text: 豆瓣
    url: http://book.douban.com/subject/10555435/
-star: 5
+star: 50
 description: ""
 category: book 
 tags: 

@@ -25,7 +25,7 @@ title: 首页
                             </ul>
                             <h4>作者: {{ book.author }}</h4>
                             <h4>加入时间: {{ book.date | date: "%Y-%m-%d"}}</h4>
-                            <h4>评星: {{ book.star }}</h4>
+                            <h4>评星: <span class="allstar{{ book.star }}"></span></h4>
                             <h4>相关链接: 
                                 {% for link in book.urls %}
                                 <a class="btn btn-primary btn-mini" href="{{ link.url }}">{{ link.text }} </a>
