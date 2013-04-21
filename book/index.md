@@ -1,21 +1,55 @@
 ---
 layout: default
-title: 阅读 
+title: 首页
 ---
 {% include JB/setup %}
-
-<div id="content">
-    <div class="text-post posts">
-
-	{% for post in site.categories.book limit:5 %}
-
-		<h2><a class="post_title" href="{{ post.url }}">{{post.title}}</a></h2>
-
-		<div class="caption rich-content">
-			{{ post.content }}
-		</div>
-
-	{% endfor %}
-
+<div class="row">
+    <div class="span9">
+        <h2>我的阅读...</h2>
+        {% for book in site.categories.book %}
+            <div class="thumbnail row-fluid">
+                <div class="span3">
+                    <a href="{{ book.url }}"> 
+                        <img style="width: 200px; height: 240px;" class="img-rounded" alt="{{book.title}}" src="{{ HOME_PATH }}book/covers/{{ book.cover }}">
+                    </a>
+                </div>
+                <div class="caption span7">
+                     <h2><a href="{{ book.url }}">{{ book.title }}</a></h2>
+                     <ul class="tag_box inline">
+                        {% assign tags_list = book.tags %}
+                        {% include JB/tags_list %}
+                     </ul>
+                     <h3>作者: {{ book.author }}</h3>
+                     <h3>加入时间: {{ book.date | date: "%Y-%m-%d"}}</h3>
+                     <h3>评星: {{ book.star }}</h3>
+                     <h3>打卡:</h3>
+                     {% for record in book.records | limit:5 %}
+                       <p> - {{ record.datetime }}</p>
+                     {% endfor %}
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+    </div>
+    <div class="span3">
+        <hr>
+        <div class="span3">
+            <h2>所有标签</h2>
+            <ul class="tag_box inline">
+            {% assign tags_list = site.tags %}
+            {% include JB/tags_list %}
+            </ul>
+        </div>
+        <hr>
+        <div class="span3">
+            <h2>所有阅读</h2>
+            <ol>
+                {% for book in site.categories.book %}
+                <li><a href="{{ book.url }}">{{ book.title }}</a></li>
+                {% endfor %}
+            </ol>
+        </div>
     </div>
 </div>
+
+

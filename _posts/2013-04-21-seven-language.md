@@ -1,6 +1,6 @@
 ---
 layout: book 
-title: "《七周七语言 理解多种编程范型》"
+title: "七周七语言 理解多种编程范型"
 author: Bruce A. Tate
 cover: sevenlanguage.jpg
 urls:

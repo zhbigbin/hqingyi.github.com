@@ -10,8 +10,8 @@ title: 首页
         <div class="well">
             <div class="row">
                 <div class="span3 {% cycle 'pull-left','pull-right' %}">
-                    <h1>{{ post.date | date: "%B %e,%Y"}}</h1>
-                    <h2>《{{ post.title }}》</h2>
+                    <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+                    <h2>{{ post.date | date: "%Y-%m-%d"}}</h2>
                      <ul class="tag_box inline">
                         {% assign tags_list = post.tags %}
                         {% include JB/tags_list %}
