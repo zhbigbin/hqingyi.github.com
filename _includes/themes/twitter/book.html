@@ -1,0 +1,56 @@
+<div class="page-header">
+  <h1>{{ page.title }} </h1>
+</div>
+
+<div class="row">
+  <div class="span9">
+    <div class="row">
+        <div class="span3">
+            {% if page.cover %}
+                <img src="/book/covers/{{page.cover}}" class="img-rounded"/>
+            {% else %}
+                <img src="/book/covers/{{page.cover}}" class="img-rounded"/>
+            {% endif %}
+        </div>
+        <div class="span6">
+        <div class="hero-unit">
+            <h2>{{ page.title }}</h2>
+            <p>作者：{{ page.author }}</p>
+            <p>评星：{{ page.star }}</p>
+            <p>标签：{{ page.tags }}</p>
+            <p>描述：{{ page.description }}</p>
+            <p>相关链接：
+                {% for link in page.urls %}
+                    <a class="btn btn-primary btn-large" href="{{ link.url }}">{{ link.text }} </a>
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+        <div class="alert alert-success span8">
+            <h2>打卡纪录</h2>
+            {% for record in page.records %}
+            <p>{{ record.datetime}} - {{record.content}}</p>
+            {% endfor %}
+        </div>
+    </div>
+        {{ content }}
+    <hr>
+    {% include JB/comments %}
+  </div>
+  
+  <div class="span3">
+    <h4>Published</h4>
+    <div class="date"><span>{{ page.date | date_to_long_string }}</span></div>
+
+  {% unless page.tags == empty %}
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    {% assign tags_list = page.tags %}
+    {% include JB/tags_list %}
+    </ul>
+  {% endunless %}  
+  </div>
+  <div>
+    {% tag_cloud %}
+  </div>
+</div>
