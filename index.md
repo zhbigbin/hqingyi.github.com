@@ -5,10 +5,6 @@ title: 首页
 {% include JB/setup %}
 <div class="row">
     <div class="span9">
-        <h2>最新文章 <a href="{{ HOME_PATH }}blog" style="font-size:18px">(更多...)</a></h2>
-        {% assign blogs_list = site.categories.blog %}
-        {% assign blogs_limit = 2 %}
-        {% include JB/blogs_list %}
         <h2>正在阅读 <a href="{{ HOME_PATH }}book" style="font-size:18px">(更多...)</a></h2>
         <div class="row-fluid">
             <ul class="thumbnails">
@@ -37,27 +33,18 @@ title: 首页
             {% endfor %}
             </ul>
         </div>
+        <h2>最新文章 <a href="{{ HOME_PATH }}blog" style="font-size:18px">(更多...)</a></h2>
+        {% assign blogs_list = site.categories.blog %}
+        {% assign blogs_limit = 2 %}
+        {% include custom/blogs_abs %}
     </div>
     <div class="span3">
         <hr>
-        <div class="span3">
-            <h2>青衣秀士</h2>
-                <img src="images/hqingyi.jpg" style="width:140px;height:140px" class="img-rounded">
-                <div class="caption">
-                    <p>所在地：北京</p>
-                    <p>从今天起，做一个幸福的程序员，看书编码调试程序。从明天起，关心性能优化，给每一个结构、算法取一个温暖的名字。我有一个工位，背朝厕所春暖花开。</p>
-                </div>
-        </div>
+        {% include custom/author_side %}
         <hr>
-        {% include JB/public %}
+        {% include custom/p404_side %}
         <hr>
-        <div class="span3">
-            <h2>所有标签</h2>
-            <ul class="tag_box inline">
-            {% assign tags_list = site.tags %}
-            {% include JB/tags_list %}
-            </ul>
-        </div>
+        {% include custom/all_tag_list_side %}
     </div>
 </div>
 

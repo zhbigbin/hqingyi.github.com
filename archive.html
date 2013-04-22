@@ -19,7 +19,7 @@ group: navigation
             	{% assign archives_year = post_year %}
             	<h1>{{ archives_year }}</h1>
             {% endif %}
-                <div style="font-size:20px; padding-top:5px;">{{ post.date | date: "%m-%d" }}: 
+                <div style="font-size:120%; padding-top:5px;">{{ post.date | date: "%m-%d" }}: 
                     {% if post.category == "book" %}
                         <a href="{{ HOME_PATH }}book">【阅读】</a>
                     {% elsif post.category == "blog" %}
