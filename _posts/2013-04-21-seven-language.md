@@ -12,7 +12,9 @@ category: book
 tags: 
  - 编程语言
 records:
- - datetime: 2013.04.21
+ - datetime: 2013.04.17
    content: 第一章 Ruby
+ - datetime: 2013.04.22
+   content: Chapter 2, Io，基于原型对象的语言。
 ---
 {% include JB/setup %}
