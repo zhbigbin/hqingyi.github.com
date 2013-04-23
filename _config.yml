@@ -5,7 +5,7 @@ permalink: /:categories/:year/:month/:day/:title
 markdown: redcarpet
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-auto: true
+auto: false
 pygments: true
 
 # Themes are encouraged to use these universal variables 
