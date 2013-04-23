@@ -14,7 +14,6 @@
     <!-- Le styles -->
     <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link href="{{ ASSET_PATH }}/css/star.css?body=1" rel="stylesheet" type="text/css" media="all">
 
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
@@ -30,12 +29,12 @@
     <div class="navbar navbar-fixed-top" style="padding-left: 0; padding-right: 0;">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="{{ HOME_PATH }}" style="font-size:32px"> {{ site.title }} </a>
-          <ul class="nav" style="font-size:22px">
-			<li><a href="/">首页</a></li>
-			<li><a href="/blog">博客</a></li>
-			<li><a href="/book">阅读</a></li>
-			<li><a href="/archive.html">存档</a></li>
+          <a class="brand" href="{{ HOME_PATH }}" style="font-size:180%"> {{ site.title }} </a>
+          <ul class="nav" style="font-size:130%">
+			<li {% if page.url == "/index.html" %}class="active"{% endif %}><a href="/">首页</a></li>
+			<li {% if page.url == "/blog/index.html" %}class="active"{% endif %}><a href="/blog">博客</a></li>
+			<li {% if page.url == "/book/index.html" %}class="active"{% endif %}><a href="/book">阅读</a></li>
+			<li {% if page.url == "/archive.html" %}class="active"{% endif %} ><a href="/archive.html">存档</a></li>
 			<!--<li><a href="/about.html">关于</a></li>-->
           </ul>
           <ul class="nav pull-right nav-right">
@@ -57,8 +56,6 @@
             <p>&copy; 2012 {{ site.author.name }}, Powered by Github</p>
       </footer>
     </div> <!-- /container -->
-    <a target="_blank" href="https://github.com/HQingYi/hqingyi.github.com"><img style="position: fixed; top: 0; right: 0; border: 0;z-index:5000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
-
     {% include JB/analytics %}
   </body>
 </html>

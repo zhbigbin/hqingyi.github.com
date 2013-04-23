@@ -1,42 +1,27 @@
 ---
-layout: default
+layout: other
 title: 归档
 group: navigation
 ---
+{% capture archives_year %}
+    {{ 'now' | date: '%Y' }}
+{% endcapture %}
 
-<div class="row">
-    <div class="span9">
-    	{% capture archives_year %}
-    		{{ 'now' | date: '%Y' }}
-    	{% endcapture %}
+{% for post in site.posts %}
+    {% capture post_year %}
+        {{ post.date | date: '%Y' }}
+    {% endcapture %}
 
-    	{% for post in site.posts %}
-        	{% capture post_year %}
-        		{{ post.date | date: '%Y' }}
-        	{% endcapture %}
-
-            {% if archives_year != post_year %}
-            	{% assign archives_year = post_year %}
-            	<h1>{{ archives_year }}</h1>
-            {% endif %}
-                <div style="font-size:120%; padding-top:5px;">{{ post.date | date: "%m-%d" }}: 
-                    {% if post.category == "book" %}
-                        <a href="{{ HOME_PATH }}book">【阅读】</a>
-                    {% elsif post.category == "blog" %}
-                        <a href="{{ HOME_PATH }}blog">【博客】</a>
-                    {% endif %}
-                    <a href="{{post.url}}">{{ post.title }}</a>
-                </div>
-        {% endfor %}
+    {% if archives_year != post_year %}
+        {% assign archives_year = post_year %}
+        <h1>{{ archives_year }}</h1>
+    {% endif %}
+    <div style="font-size:120%; padding-top:5px;">{{ post.date | date: "%m-%d" }}: 
+	    {% if post.category == "book" %}
+	        <a href="{{ HOME_PATH }}book">【阅读】</a>
+	    {% elsif post.category == "blog" %}
+	        <a href="{{ HOME_PATH }}blog">【博客】</a>
+	    {% endif %}
+	    <a href="{{post.url}}">{{ post.title }}</a>
     </div>
-    <div class="span3">
-        <hr>
-        <div class="span3">
-            <h2>所有标签</h2>
-            <ul class="tag_box inline">
-            {% assign tags_list = site.tags %}
-            {% include JB/tags_list %}
-            </ul>
-        </div>
-    </div>
-</div>
+{% endfor %}

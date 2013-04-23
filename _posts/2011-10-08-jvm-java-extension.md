@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: blog-post
 title: "通过JVM指令理解Java中的继承（正在整理中）"
 description: ""
 category: blog

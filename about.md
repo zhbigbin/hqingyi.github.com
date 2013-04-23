@@ -1,8 +1,7 @@
 ---
-layout: page
+layout: other
 title: "关于"
 description: ""
-group: navigation
 ---
 <div class="caption rich-content">
 <p>

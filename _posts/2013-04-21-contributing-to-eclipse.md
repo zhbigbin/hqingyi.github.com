@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: book-post
 title: "Contributing to Eclipse中文版"
 author: "Kent Beck, Erich Gamma"
 cover: contributing_to_eclipse.jpg
