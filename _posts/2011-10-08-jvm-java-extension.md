@@ -84,169 +84,169 @@ tags: [Java核心技术]
 
 * 类Animal：
 
-    ```java
-    /**
-    * 超类。
-    * 
-    * @author 青衣秀士_huangb
-    * 
-    */
-    public class Animal {
-        private String tag = "动物";
+```java
+/**
+* 超类。
+* 
+* @author 青衣秀士_huangb
+* 
+*/
+public class Animal {
+    private String tag = "动物";
 
-        private int age;
+    private int age;
 
-        public Animal() {
-            super();
-        }
-
-        /**
-        * 供子类覆盖的方法
-        */
-        public void walk() {
-            System.out.println("动物要走路...");
-        }
-
-        /**
-        * 供子类覆盖，并在子类中通过super进行调用
-        */
-        protected void eat() {
-            System.out.println("进食...");
-        }
-
-        /**
-        * 子类不进行重写，该方法调用一个动态绑定的方法。
-        */
-        void sleep() {
-            sleepBody();
-        }
-        
-        /**
-        * 调用一个静态绑定的方法。 
-        */
-        void sleepBody(){
-            sleepContent();
-        }
-        
-        /**
-        * 私有方法，作为静态绑定的一个示例
-        */
-        private void sleepContent(){
-            System.out.println("休息...");
-        }
-
-        /**
-        * 子类有同名tag属性，提供额外的getter。
-        * 
-        * @return tag
-        */
-        public String getSuperTag(){
-            return this.tag;
-        }
-        
-        public String getTag() {
-            return tag;
-        }
-
-        public int getAge() {
-            return age;
-        }
+    public Animal() {
+        super();
     }
-    ```
+
+    /**
+    * 供子类覆盖的方法
+    */
+    public void walk() {
+        System.out.println("动物要走路...");
+    }
+
+    /**
+    * 供子类覆盖，并在子类中通过super进行调用
+    */
+    protected void eat() {
+        System.out.println("进食...");
+    }
+
+    /**
+    * 子类不进行重写，该方法调用一个动态绑定的方法。
+    */
+    void sleep() {
+        sleepBody();
+    }
+    
+    /**
+    * 调用一个静态绑定的方法。 
+    */
+    void sleepBody(){
+        sleepContent();
+    }
+    
+    /**
+    * 私有方法，作为静态绑定的一个示例
+    */
+    private void sleepContent(){
+        System.out.println("休息...");
+    }
+
+    /**
+    * 子类有同名tag属性，提供额外的getter。
+    * 
+    * @return tag
+    */
+    public String getSuperTag(){
+        return this.tag;
+    }
+    
+    public String getTag() {
+        return tag;
+    }
+
+    public int getAge() {
+        return age;
+    }
+}
+```
 
 * 类Cat（继承Animal）：
 
-    ```java
-    /**
-    * 子类。
-    *
-    * @author 青衣秀士_huangb
-    *
-    */
-    public class Cat extends Animal{
-        private String tag = "猫";
-         
-        private String name = "Tom";
+```java
+/**
+* 子类。
+*
+* @author 青衣秀士_huangb
+*
+*/
+public class Cat extends Animal{
+    private String tag = "猫";
+     
+    private String name = "Tom";
 
-        public Cat() {
-            /**
-            * 注意此处会隐式调用超类的默认构造器。
-            */
-            this.name = "TomCat";
-        }
-         
+    public Cat() {
         /**
-        * 直接覆盖父类方法。
+        * 注意此处会隐式调用超类的默认构造器。
         */
-        @Override
-        public void walk() {
-            System.out.println("走猫步...");
-        }
-         
-        /**
-        * 使用super完成静态绑定的方法调用。
-        */
-        @Override
-        protected void eat() {
-            System.out.println("先洗爪子^_^...");
-            super.eat();
-        }
-         
-        /**
-        * 动态绑定示例，被Animal.sleep()调用。
-        */
-        @Override
-        void sleepBody(){
-            sleepContent();
-        }
-         
-        /**
-        * 通过super静态绑定，调用父类的sleepBody()，由于sleepContent为静态绑定，故调用Animal.sleepContent()的内容。
-        */
-        void sleep2(){
-            super.sleepBody();
-        }
-         
-        /**
-        * 静态绑定示例。
-        */
-        private void sleepContent(){
-            System.out.println("不睡，逮耗子...");
-        }
-         
-        public String getTag() {
-            return tag;
-        }
-        public String getName() {
-            return name;
-        }
-         
-        /**
-        * 验证主方法。
-        * 
-        * @param args
-        */
-        public static void main(String[] args){
-            // 验证内容1：b.子类初始化时，总会显式或者隐式调用超类的构造器。
-            // 方法：1）使用debug模式执行，在构造器入口打上断点。2）或直接查看构造器的字节码指令。
-            Cat cat = new Cat();
-            // 验证内容2：a.某子类初始化时，会分配包含超类属性的空间大小。
-            // 方法：通过断点查看当前对象，或者通过dump出堆中信息进行分析
-             
-            // 验证内容3：c.若子类与父类包含相同名称的属性时，如何取属性以进行处理
-            System.out.println(cat.getTag());
-            System.out.println(cat.getSuperTag());
-             
-            // 验证内容4：d.private、构造方法会通过invokespecial指令调用；一般对象方法会通过invokevirtual指令进行调用。
-            // 补充：super的也是invokespecial
-            // 方法：查看各方法的字节码指令
-            cat.walk(); // 走猫步...
-            cat.eat(); // 先洗爪子再进食
-            cat.sleep(); //动态绑定，最终找到Cat.sleepContent()
-            cat.sleep2();//静态绑定，最终找到Animal.sleepContent();
-        }
+        this.name = "TomCat";
     }
-    ```
+     
+    /**
+    * 直接覆盖父类方法。
+    */
+    @Override
+    public void walk() {
+        System.out.println("走猫步...");
+    }
+     
+    /**
+    * 使用super完成静态绑定的方法调用。
+    */
+    @Override
+    protected void eat() {
+        System.out.println("先洗爪子^_^...");
+        super.eat();
+    }
+     
+    /**
+    * 动态绑定示例，被Animal.sleep()调用。
+    */
+    @Override
+    void sleepBody(){
+        sleepContent();
+    }
+     
+    /**
+    * 通过super静态绑定，调用父类的sleepBody()，由于sleepContent为静态绑定，故调用Animal.sleepContent()的内容。
+    */
+    void sleep2(){
+        super.sleepBody();
+    }
+     
+    /**
+    * 静态绑定示例。
+    */
+    private void sleepContent(){
+        System.out.println("不睡，逮耗子...");
+    }
+     
+    public String getTag() {
+        return tag;
+    }
+    public String getName() {
+        return name;
+    }
+     
+    /**
+    * 验证主方法。
+    * 
+    * @param args
+    */
+    public static void main(String[] args){
+        // 验证内容1：b.子类初始化时，总会显式或者隐式调用超类的构造器。
+        // 方法：1）使用debug模式执行，在构造器入口打上断点。2）或直接查看构造器的字节码指令。
+        Cat cat = new Cat();
+        // 验证内容2：a.某子类初始化时，会分配包含超类属性的空间大小。
+        // 方法：通过断点查看当前对象，或者通过dump出堆中信息进行分析
+         
+        // 验证内容3：c.若子类与父类包含相同名称的属性时，如何取属性以进行处理
+        System.out.println(cat.getTag());
+        System.out.println(cat.getSuperTag());
+         
+        // 验证内容4：d.private、构造方法会通过invokespecial指令调用；一般对象方法会通过invokevirtual指令进行调用。
+        // 补充：super的也是invokespecial
+        // 方法：查看各方法的字节码指令
+        cat.walk(); // 走猫步...
+        cat.eat(); // 先洗爪子再进食
+        cat.sleep(); //动态绑定，最终找到Cat.sleepContent()
+        cat.sleep2();//静态绑定，最终找到Animal.sleepContent();
+    }
+}
+```
  
 ### 示例说明
 
