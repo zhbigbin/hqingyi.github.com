@@ -21,13 +21,13 @@ tags: [Java核心技术]
 * 方法调用（原文摘自vm spec 3.11.8章节）
 
     > The following four instructions invoke methods:
-    
+    >
     > invokevirtualinvokes an instance method of an object, dispatching on the (virtual) type of the object. This is the normal method dispatch in the Java programming language.
-    
+    >
     > invokeinterfaceinvokes a method that is implemented by an interface, searching the methods implemented by the particular runtime object to find the appropriate method.
-    
+    >
     > invokespecialinvokes an instance method requiring special handling, whether an instance initialization method，aprivatemethod, or a superclass method.
-    
+    >
     > invokestaticinvokes a class (static) method in a named class.
 
     * invokevirtual 调用对象的实例方法；
@@ -42,15 +42,15 @@ tags: [Java核心技术]
 当一个实例对象被创建时，会为所有类声明的属性及其超类声明的属性分配足够的内存空间，这些属性都将被初始化。
  
 > Just before a reference to the newly created object is returned as the result, the indicated constructor is processed to initialize the new object using the following procedure:
-
+>
 > Assign the arguments for the constructor to newly created parameter variables for this constructor invocation.
-
+>
 > If this constructor begins with an explicit constructor invocation of another constructor in the same class (usingthis), then evaluate the arguments and process that constructor invocation recursively using these same five steps. If that constructor invocation completes abruptly, then this procedure completes abruptly for the same reason. Otherwise, continue with step 5.
-
+>
 > If this constructor does not begin with an explicit constructor invocation of another constructor in the same class (usingthis) and is in a class other thanObject,then this constructor will begin with an explicit or implicit invocation of a superclass constructor (usingsuper). Evaluate the arguments and process that superclass constructor invocation recursively using these same five steps. If that constructor invocation completes abruptly, then this procedure completes abruptly for the same reason. Otherwise, continue with step 4.
-
+>
 > Execute the instance variable initializers for this class, assigning their values to the corresponding instance variables, in the left-to-right order in which they appear textually in the source code for the class. If execution of any of these initializers results in an exception, then no further initializers are processed and this procedure completes abruptly with that same exception. Otherwise, continue with step 5. (In some early implementations, the compiler incorrectly omitted the code to initialize a field if the field initializer expression was a constant expression whose value was equal to the default initialization value for its type. This was a bug.)
-
+>
 > Execute the rest of the body of this constructor. If that execution completes abruptly, then this procedure completes abruptly for the same reason. Otherwise, this procedure completes normally.
          
 只要注意：在一个构造器开始时，总是会显式或者隐式调用父类的构造器。之后会为这些属性值设置相当的初始值。最后执行构造器中剩余的内容。
